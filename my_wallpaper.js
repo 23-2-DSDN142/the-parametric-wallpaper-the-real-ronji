@@ -1,8 +1,3 @@
-//your parameter variables go here!
-let rect_width  = 20;
-let rect_height = 20;
-
-
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(DEVELOP_GLYPH);
   pWallpaper.resolution(FIT_TO_SCREEN);
@@ -11,7 +6,7 @@ function setup_wallpaper(pWallpaper) {
   //Grid settings
   pWallpaper.grid_settings.cell_width  = 200;
   pWallpaper.grid_settings.cell_height = 200;
-  pWallpaper.grid_settings.row_offset  = 50;
+  pWallpaper.grid_settings.row_offset  = 0;
 }
 
 function wallpaper_background() {
@@ -19,29 +14,42 @@ function wallpaper_background() {
 }
 
 function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
-  let cloudstart = 80
-
   
+  /*let cloudstart = 80
   strokeWeight(0)
   ellipse(60,50,40,40)
   ellipse(80,30,40,40)
   ellipse(90,60,40,40)
   ellipse(110,30,40,40)
   ellipse(120,60,40,40)
-  ellipse(140,40,40,40)
+  ellipse(140,40,40,40)*/
 
+  /*
   strokeWeight(1)
+  size = .5
+  DrawCatHead(70,60,size)
+  DrawCatHead(70,340,size)
+  DrawCatHead(330,60,size)
+  DrawCatHead(330,340,size)
+  */
+
   
-  //DrawCatHead(100,100)
-
+  DrawCatHead(70,70,.7)
+  //DrawCatHead(100,100,1)
 }
+ 
 
-function DrawCatHead(headX,headY) {
+function DrawCatHead(headX,headY,size) {
+  
+  //COLOURS
+  let furColour = color(50)   //50 //252, 186, 3
+  let eyeColour = color(165, 252, 162)  //165, 252, 162  //57, 207, 227
+  let glassesColour = color(255, 138, 140, 100) //255, 138, 140, 100 //29, 138, 25,120
 
   //EARS
   let earYinner = headY-5
   let earYouter = headY-30
-  let earYtip = headY-45
+  let earYtip = headY-45 //45
   let earXinner = /*headx +- */ 45
   let earXouter = /*headx +- */ 10
   let earXtip = /*headx +- */ 55
@@ -86,10 +94,14 @@ function DrawCatHead(headX,headY) {
   let eyeshineX2 = 7            //oblong eyeshine
   let eyeshineY2 = pupilY+2
 
+  push()
+
+  scale(size)
+
   stroke(0)
 
   //EARS
-  fill(50) //brown colour 176, 110, 67
+  fill(furColour) //brown colour 176, 110, 67
   triangle(headX-earXinner,earYinner,headX-earXouter,earYouter,headX-earXtip,earYtip)
   triangle(headX+earXinner,earYinner,headX+earXouter,earYouter,headX+earXtip,earYtip)
   
@@ -111,7 +123,7 @@ function DrawCatHead(headX,headY) {
   endShape()
   
   //EYES
-  fill (165, 252, 162)
+  fill (eyeColour)
   curve(eyeCurveX1, eyeCurveY1i, eyeX1, eyeYupper, headX+36, eyeYupEnd, headX+70, eyeCurveY1f);
   curve(eyeCurveX2, eyeCurveY2i, eyeX1, eyeYlower, headX+35, eyeYlowEnd, headX+10, eyeCurveY2f)
   curve(eyeCurveX2, eyeCurveY1i, eyeX2, eyeYupper, headX-36, eyeYupEnd, headX-70, eyeCurveY1f);
@@ -131,7 +143,7 @@ function DrawCatHead(headX,headY) {
   stroke(0)
   
   //GLASSES
-  fill(255, 138, 140, 100) //transparent bluish colour
+  fill(glassesColour) //transparent rose colour
   ellipse(headX-25,glassesY, 30,20)   
   ellipse(headX+25,glassesY, 30,20)
   line(headX-10,bridgeY,headX,bridgeY-5)
@@ -145,5 +157,7 @@ function DrawCatHead(headX,headY) {
   line(mouthcentreX,mouthcentreY,mouthcentreX,nosebottomY)
   line(mouthcentreX,mouthcentreY,headX-mouthendX,mouthendY)
   line(mouthcentreX,mouthcentreY,headX+mouthendX,mouthendY)  
-  
+
+  pop()
 }
+
