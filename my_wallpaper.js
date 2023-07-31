@@ -1,50 +1,49 @@
 function setup_wallpaper(pWallpaper) {
-  pWallpaper.output_mode(DEVELOP_GLYPH);
+  pWallpaper.output_mode(DEVELOP_GLYPH);//DEVELOP_GLYPH, GRID_WALLPAPER, GLIDE_WALLPAPER
   pWallpaper.resolution(FIT_TO_SCREEN);
   pWallpaper.show_guide(true); //set this to false when you're ready to print
 
   //Grid settings
   pWallpaper.grid_settings.cell_width  = 200;
   pWallpaper.grid_settings.cell_height = 200;
-  pWallpaper.grid_settings.row_offset  = 0;
+  pWallpaper.grid_settings.row_offset  = 100;
 }
 
 function wallpaper_background() {
   background(210, 250, 210); //light honeydew green colour
 }
 
-function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
+function my_symbol() { 
+  angleMode(DEGREES)
   
-  /*let cloudstart = 80
-  strokeWeight(0)
-  ellipse(60,50,40,40)
-  ellipse(80,30,40,40)
-  ellipse(90,60,40,40)
-  ellipse(110,30,40,40)
-  ellipse(120,60,40,40)
-  ellipse(140,40,40,40)*/
-
-  /*
-  strokeWeight(1)
-  size = .5
-  DrawCatHead(70,60,size)
-  DrawCatHead(70,340,size)
-  DrawCatHead(330,60,size)
-  DrawCatHead(330,340,size)
-  */
+  
+  // drawCloud1(140,80,.7)
+  // drawCloud1(100,180,.7)
+  
+  // drawCloud2(20,30,.7)
+  // drawCloud2(3,120,.7)
+  
+  line(0,40,200,100)
+  line(0,140,200,70)
 
   
-  DrawCatHead(70,70,.7)
-  //DrawCatHead(100,100,1)
-}
+  
+  drawCloud1(330,80,.4,15)
+  drawCloud1(140,130,.8,15)
+  drawCloud2(20,50,1,15)
+  drawCloud2(350,150,.5,15)
+  // DrawCatHead(230,300,.5)
  
+  
+}
 
-function DrawCatHead(headX,headY,size) {
+
+function DrawCatHead(headX,headY,size,rotateCat) {
   
   //COLOURS
-  let furColour = color(50)   //50 //252, 186, 3
-  let eyeColour = color(165, 252, 162)  //165, 252, 162  //57, 207, 227
-  let glassesColour = color(255, 138, 140, 100) //255, 138, 140, 100 //29, 138, 25,120
+  let furColour = color(50)   //50        //252, 186, 3
+  let eyeColour = color(165, 252, 162)  //165, 252, 162         //57, 207, 227
+  let glassesColour = color(255, 138, 140, 100) //255, 138, 140, 100      //29, 138, 25,120
 
   //EARS
   let earYinner = headY-5
@@ -97,7 +96,7 @@ function DrawCatHead(headX,headY,size) {
   push()
 
   scale(size)
-
+  rotate(rotateCat)
   stroke(0)
 
   //EARS
@@ -161,3 +160,28 @@ function DrawCatHead(headX,headY,size) {
   pop()
 }
 
+function drawCloud1(cloudx1,cloudy1,csize,rotate1){
+  push()
+  rotate(rotate1)
+  scale(csize)
+  noStroke()
+  rect(cloudx1+25,cloudy1-25,20,18, 35,35,5,5)
+  rect(cloudx1+10,cloudy1-14,30,20, 35,35,5,60)
+  rect(cloudx1+38,cloudy1-10,16,15, 35,40,5,5)
+  ellipse(cloudx1+25,cloudy1+4,50,10)
+  ellipse(cloudx1+40,cloudy1+4,50,10)
+  //ellipse(cloudx1+20,cloudy1+3.5,30,10)
+  pop()
+}
+
+function drawCloud2(cloudx2,cloudy2,csize2,rotate2){
+  push()
+  rotate(rotate2)
+  scale(csize2)
+  noStroke()
+  rect(cloudx2,cloudy2,88,17, 35,35,5,5)
+  rect(cloudx2+25,cloudy2-25,28,25, 35,35,5,5)
+  rect(cloudx2+10,cloudy2-15,30,20, 35,35,5,5)
+  rect(cloudx2+38,cloudy2-10,32,15, 35,40,5,5)
+  pop()
+}
