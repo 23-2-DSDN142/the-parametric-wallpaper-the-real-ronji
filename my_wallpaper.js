@@ -1,7 +1,11 @@
+let w = 1
+
+// line 71 is 
+
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(DEVELOP_GLYPH);//DEVELOP_GLYPH, GRID_WALLPAPER, GLIDE_WALLPAPER
-  pWallpaper.resolution(FIT_TO_SCREEN);
-  pWallpaper.show_guide(true); //set this to false when you're ready to print
+  pWallpaper.resolution(FIT_TO_SCREEN);//FIT_TO_SCREEN, NINE_PORTRAIT, NINE_LANDSCAPE
+  pWallpaper.show_guide(true); //false, true
 
   //Grid settings
   pWallpaper.grid_settings.cell_width  = 200;
@@ -9,36 +13,60 @@ function setup_wallpaper(pWallpaper) {
   pWallpaper.grid_settings.row_offset  = 100;
 }
 
+//  NOTES
+//  background feature can only be used in wallpaper_background
+//  comment on the parameter changes that AREN'T able to be displayed at the top
+
 function wallpaper_background() {
-  background(210, 250, 210); //light honeydew green colour
+  background(210, 250, 210); 
+  //  default light green:   210, 250, 210
+  //  light sky blue:  191, 206, 255
+  //  stormy purple: 104, 97, 117
 }
+
+//  IDEAS 
+//  theme: raining cats and dogs??
+//  need to design dog head if im pursuing this idea
+//  use IF statements to interchange between the 9 idfferent varaibles of the wallpaper
+//  maybe too much clouds, or maybe can use many clouds vs. little clouds in different versions
+//  experiment with angling and balance
+//  a few of the wallpapers must include colour change: maybe clear skies to stormy??
+//  maybe experiment in detailing of icons that are alrdy created: clouds,cat,?dog?
 
 function my_symbol() { 
   angleMode(DEGREES)
+ 
+  if(w == 1){
+  drawCloud1(180,100,.5)
+  drawCloud2(20,30,.7)  
   
-  
-  // drawCloud1(140,80,.7)
-  // drawCloud1(100,180,.7)
-  
-  // drawCloud2(20,30,.7)
-  // drawCloud2(3,120,.7)
-  
+  drawCloud2(100,180,.5)
+  drawCloud1(130,110,)
+
+  drawCloud2(150,250,.7)
+  drawCloud1(30,220,.7)
+
+  drawCloud2(500,100,.3)
+    
+  // drawCat(200,100,.5,45)
+  // drawCat(100,200,.5,-45)
+  } 
+
+  else if (w == 2){  
   line(0,40,200,100)
   line(0,140,200,70)
-
-  
   
   drawCloud1(330,80,.4,15)
   drawCloud1(140,130,.8,15)
   drawCloud2(20,50,1,15)
   drawCloud2(350,150,.5,15)
-  // DrawCatHead(230,300,.5)
- 
   
+  //drawCat(230,300,.5)
+  }
+
 }
 
-
-function DrawCatHead(headX,headY,size,rotateCat) {
+function drawCat(headX,headY,size,rotateCat) {
   
   //COLOURS
   let furColour = color(50)   //50        //252, 186, 3
