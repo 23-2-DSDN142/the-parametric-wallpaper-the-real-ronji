@@ -1,19 +1,19 @@
-let w = 1
+let w = 3
 
 // line 71 is 
 
 function setup_wallpaper(pWallpaper) {
-  pWallpaper.output_mode(DEVELOP_GLYPH);//DEVELOP_GLYPH, GRID_WALLPAPER, GLIDE_WALLPAPER
+  pWallpaper.output_mode(GRID_WALLPAPER);//DEVELOP_GLYPH, GRID_WALLPAPER, GLIDE_WALLPAPER
   pWallpaper.resolution(FIT_TO_SCREEN);//FIT_TO_SCREEN, NINE_PORTRAIT, NINE_LANDSCAPE
-  pWallpaper.show_guide(true); //false, true
+  pWallpaper.show_guide(false); //false, true
 
   //Grid settings
   pWallpaper.grid_settings.cell_width  = 200;
   pWallpaper.grid_settings.cell_height = 200;
-  pWallpaper.grid_settings.row_offset  = 100;
+  pWallpaper.grid_settings.row_offset  = 0;
 }
 
-//  NOTES
+//  NOTES   
 //  background feature can only be used in wallpaper_background
 //  comment on the parameter changes that AREN'T able to be displayed at the top
 
@@ -24,7 +24,7 @@ function wallpaper_background() {
   //  stormy purple: 104, 97, 117
 }
 
-//  IDEAS 
+//  IDEAS   
 //  theme: raining cats and dogs??
 //  need to design dog head if im pursuing this idea
 //  use IF statements to interchange between the 9 idfferent varaibles of the wallpaper
@@ -36,34 +36,67 @@ function wallpaper_background() {
 function my_symbol() { 
   angleMode(DEGREES)
  
-  if(w == 1){
-  drawCloud1(180,100,.5)
-  drawCloud2(20,30,.7)  
-  
-  drawCloud2(100,180,.5)
-  drawCloud1(130,110,)
-
-  drawCloud2(150,250,.7)
-  drawCloud1(30,220,.7)
-
-  drawCloud2(500,100,.3)
+  if (w == 1){
+    drawCloud1(180,100,.5)
+    drawCloud2(20,30,.7)  
     
-  // drawCat(200,100,.5,45)
-  // drawCat(100,200,.5,-45)
+    drawCloud1(130,110,)
+    drawCloud2(100,180,.5)
+
+    drawCloud2(150,250,.7)
+    drawCloud1(30,220,.7)
+
+    drawCloud2(500,100,.3)
+      
+    drawCat(200,100,.7,45)
+    drawDog(100,200,.7,-45)
+    // drawCat(10,400,.5,-45)
+    // drawDog()
   } 
 
   else if (w == 2){  
-  line(0,40,200,100)
-  line(0,140,200,70)
-  
-  drawCloud1(330,80,.4,15)
-  drawCloud1(140,130,.8,15)
-  drawCloud2(20,50,1,15)
-  drawCloud2(350,150,.5,15)
-  
-  //drawCat(230,300,.5)
-  }
+    drawCloud1(330,80,.4,15)
+    drawCloud1(140,130,.8,15)
 
+    drawCloud2(20,50,1,15)
+    drawCloud2(350,150,.5,15)
+
+    drawCloud2(150,270,.5,15)
+    drawCloud1(150,30,.5,15)
+
+    drawCloud2(300,5,.4,15)
+    drawCloud1(400,350,.4,15)
+
+    drawCloud1(80,200,.5,15)
+    drawCloud2(300,-50,.5,15)
+
+    drawCloud1(130,350,.5,15)
+    drawCloud1(30,30,.5,15)
+    
+    drawCloud2(430,50,.4,15)
+    
+    drawDog(100,100,.5)
+    drawCat(100,300,.5)
+    drawCat(300,100,.5)
+    drawDog(300,300,.5)
+  }
+  
+  else if (w == 3){
+    drawCloud1(180,100,.5)
+    drawCloud2(20,30,.7)  
+    
+    drawCloud1(130,110,)
+    drawCloud2(100,180,.5)
+
+    drawCloud2(150,250,.7)
+    drawCloud1(30,220,.7)
+
+    drawCloud2(500,100,.3)
+    
+    drawDog(50,60)
+    drawCat(150,160)
+    
+  }
 }
 
 function drawCat(headX,headY,size,rotateCat) {
@@ -169,12 +202,12 @@ function drawCat(headX,headY,size,rotateCat) {
 
   stroke(0)
   
-  //GLASSES
-  fill(glassesColour) //transparent rose colour
-  ellipse(headX-25,glassesY, 30,20)   
-  ellipse(headX+25,glassesY, 30,20)
-  line(headX-10,bridgeY,headX,bridgeY-5)
-  line(headX+10,bridgeY,headX,bridgeY-5)
+  // //GLASSES
+  // fill(glassesColour) //transparent rose colour
+  // ellipse(headX-25,glassesY, 30,20)   
+  // ellipse(headX+25,glassesY, 30,20)
+  // line(headX-10,bridgeY,headX,bridgeY-5)
+  // line(headX+10,bridgeY,headX,bridgeY-5)
   
   //NOSE
   fill(255, 201, 246) //pinkish colour
@@ -184,6 +217,146 @@ function drawCat(headX,headY,size,rotateCat) {
   line(mouthcentreX,mouthcentreY,mouthcentreX,nosebottomY)
   line(mouthcentreX,mouthcentreY,headX-mouthendX,mouthendY)
   line(mouthcentreX,mouthcentreY,headX+mouthendX,mouthendY)  
+
+  pop()
+}
+
+function drawDog(HeadX,HeadY,Size,RotateDog) {
+    
+  //COLOUR
+  let FurColour = color(199, 141, 97)
+  let EyeColour = color(28, 14, 3)
+  let EyeShineColour = color(255)
+  let NoseColour = color(102, 72, 48)
+  let TongueColour = color(230, 170, 202)
+  
+  //GLASSES
+  let GlassesX = 0
+  let GlassesY = 5
+  
+  //EARS
+  let EarCurveY1 = 25
+  let YEarInner = 55
+  let YEarOuter = 45
+  let YEarTip = 10
+  let EarCurveY2 = 105 
+  let EarCurveX = 15
+  let XEarInner = 18
+  let XEarOuter = 50
+  let XEarTip = 45
+  
+  //EYE
+  let EyeX = 18
+  let EyeY = HeadY-15
+
+  //EYESHINE
+  let EyeShineX1 = 3
+  let EyeShineX2 = 2
+  let EyeShineY1 = HeadY-17
+  let EyeShineY2 = HeadY-13
+
+  //NOSE
+  let NoseStartX = HeadX-6
+  let NoseStartY = HeadY+3
+  let NoseX = 12
+  let NoseY = 7
+
+  //MOUTH
+  let MouthStartX = HeadX
+  let MouthStartY = HeadY+12
+  let MouthEndX = 15
+  let MouthEndY = HeadY+17
+  let MouthCurveInnerX = HeadX
+  let MouthCurveInnerY = HeadY-50
+  let MouthCurveOuterX = HeadX
+  let MouthCurveOuterY = HeadY-5
+
+  push()
+  scale(Size)
+  rotate(RotateDog)
+
+  strokeWeight(1)
+
+  fill(FurColour)
+
+  //BACK EARS
+  triangle(HeadX-XEarInner, HeadY-YEarInner, HeadX-XEarOuter, HeadY-YEarOuter,HeadX, HeadY-YEarTip)
+  triangle(HeadX+XEarInner, HeadY-YEarInner, HeadX+XEarOuter, HeadY-YEarOuter,HeadX, HeadY-YEarTip)
+
+  //HEAD
+  beginShape()
+  curveVertex(HeadX,HeadY-45)
+  curveVertex(HeadX,HeadY-45)
+  curveVertex(HeadX+20,HeadY-40)
+  curveVertex(HeadX+35,HeadY-20)
+  curveVertex(HeadX+36,HeadY-5)
+  curveVertex(HeadX+30,HeadY+20)
+  curveVertex(HeadX+15,HeadY+35)
+  curveVertex(HeadX,HeadY+40) //---
+  curveVertex(HeadX-15,HeadY+35)
+  curveVertex(HeadX-30,HeadY+20)
+  curveVertex(HeadX-36,HeadY-5)
+  curveVertex(HeadX-35,HeadY-20)
+  curveVertex(HeadX-20,HeadY-40)
+  curveVertex(HeadX,HeadY-45)
+  curveVertex(HeadX,HeadY-45)
+  endShape()
+
+  //EARS
+  beginShape()
+  curveVertex(HeadX+EarCurveX, HeadY-EarCurveY1)
+  curveVertex(HeadX+XEarInner, HeadY-YEarInner)
+  curveVertex(HeadX+XEarOuter, HeadY-YEarOuter)
+  curveVertex(HeadX+XEarTip, HeadY-YEarTip)
+  curveVertex(HeadX+XEarInner, HeadY-YEarInner)
+  curveVertex(HeadX+EarCurveX, HeadY-EarCurveY2)
+  endShape()
+
+  beginShape()
+  curveVertex(HeadX-EarCurveX, HeadY-EarCurveY1)
+  curveVertex(HeadX-XEarInner, HeadY-YEarInner)
+  curveVertex(HeadX-XEarOuter, HeadY-YEarOuter)
+  curveVertex(HeadX-XEarTip, HeadY-YEarTip)
+  curveVertex(HeadX-XEarInner, HeadY-YEarInner)
+  curveVertex(HeadX-EarCurveX, HeadY-EarCurveY2)
+  endShape()
+
+  //EYE
+  fill(EyeColour)
+  ellipse(HeadX+EyeX,EyeY,14,14)
+  ellipse(HeadX-EyeX,EyeY,14,14)
+  
+  //EYESHINE
+  fill(EyeShineColour)
+  ellipse(HeadX+EyeX-EyeShineX1,EyeShineY1,7,7)
+  ellipse(HeadX-EyeX-EyeShineX1,EyeShineY1,7,7)
+
+  fill(EyeShineColour)
+  ellipse(HeadX-EyeX+EyeShineX2,EyeShineY2,4,4)
+  ellipse(HeadX+EyeX+EyeShineX2,EyeShineY2,4,4)
+  
+  //NOSE
+  fill(NoseColour)
+  rect(NoseStartX,NoseStartY,NoseX,NoseY,3)
+  
+  //TONGUE
+  fill(TongueColour)
+  curve(HeadX-6,HeadY-95,NoseStartX-2,MouthStartY+4,NoseStartX+14,MouthStartY+4,HeadX+6,HeadY-95)
+  line(HeadX,HeadY+11,HeadX,HeadY+24)
+  strokeWeight(1)
+
+  //MOUTH
+  fill(FurColour)
+  curve(MouthCurveInnerX,MouthCurveInnerY,MouthStartX,MouthStartY,HeadX+MouthEndX,MouthEndY,MouthCurveOuterX,MouthCurveOuterY) //let NoseStartX = HeadX-6
+  curve(MouthCurveInnerX,MouthCurveInnerY,MouthStartX,MouthStartY,HeadX-MouthEndX,MouthEndY,MouthCurveOuterX,MouthCurveOuterY) //let NoseStartY = HeadY+3
+  
+  // //GLASSES
+  // translate(GlassesX,GlassesY)
+  // fill(176, 189, 255, 100)
+  // rect(HeadX-30,HeadY-21,25,18,5,5,15,15)
+  // rect(HeadX+5,HeadY-21,25,18,5,5,15,15)
+  // fill(0)
+  // rect(HeadX-5,HeadY-14,10,.3)
 
   pop()
 }
