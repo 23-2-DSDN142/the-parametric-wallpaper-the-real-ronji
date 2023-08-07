@@ -1,10 +1,10 @@
-let w = 3
+let w = 1
 
-// line 71 is 
+// change parameters back to day mode (refer to wallpapers 3 and 6)
 
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(GRID_WALLPAPER);//DEVELOP_GLYPH, GRID_WALLPAPER, GLIDE_WALLPAPER
-  pWallpaper.resolution(FIT_TO_SCREEN);//FIT_TO_SCREEN, NINE_PORTRAIT, NINE_LANDSCAPE
+  pWallpaper.resolution(NINE_LANDSCAPE);//FIT_TO_SCREEN, NINE_PORTRAIT, NINE_LANDSCAPE
   pWallpaper.show_guide(false); //false, true
 
   //Grid settings
@@ -13,15 +13,16 @@ function setup_wallpaper(pWallpaper) {
   pWallpaper.grid_settings.row_offset  = 0;
 }
 
+
 //  NOTES   
 //  background feature can only be used in wallpaper_background
 //  comment on the parameter changes that AREN'T able to be displayed at the top
 
 function wallpaper_background() {
-  background(210, 250, 210); 
+  background(191, 206, 255); 
   //  default light green:   210, 250, 210
   //  light sky blue:  191, 206, 255
-  //  stormy purple: 104, 97, 117
+  //  stormy blue: 53, 38, 84
 }
 
 //  IDEAS   
@@ -50,11 +51,27 @@ function my_symbol() {
       
     drawCat(200,100,.7,45)
     drawDog(100,200,.7,-45)
-    // drawCat(10,400,.5,-45)
-    // drawDog()
   } 
 
-  else if (w == 2){  
+  else if (w == 2){
+    drawCloud1(180,100,.5)
+    drawCloud2(20,30,.7)  
+    
+    drawCloud1(130,110,)
+    drawCloud2(100,180,.5)
+
+    drawCloud2(150,250,.7)
+    drawCloud1(30,220,.7)
+
+    drawCloud2(500,100,.3)
+   
+    drawDog(100,100,.5)
+    drawCat(100,300,.5)
+    drawCat(300,100,.5)
+    drawDog(300,300,.5)    
+  }
+
+  else if (w == 3){  
     drawCloud1(330,80,.4,15)
     drawCloud1(140,130,.8,15)
 
@@ -74,37 +91,45 @@ function my_symbol() {
     drawCloud1(30,30,.5,15)
     
     drawCloud2(430,50,.4,15)
-    
-    drawDog(100,100,.5)
-    drawCat(100,300,.5)
-    drawCat(300,100,.5)
-    drawDog(300,300,.5)
+
+    drawCat(200,90,.8)
+    drawDog(80,200,.8)
   }
   
-  else if (w == 3){
-    drawCloud1(180,100,.5)
-    drawCloud2(20,30,.7)  
-    
-    drawCloud1(130,110,)
-    drawCloud2(100,180,.5)
+  else if (w == 4){
+    drawCloud1(330,80,.4,15)
+    drawCloud1(140,130,.8,15)
 
-    drawCloud2(150,250,.7)
-    drawCloud1(30,220,.7)
+    drawCloud2(20,50,1,15)
+    drawCloud2(350,150,.5,15)
 
-    drawCloud2(500,100,.3)
+    drawCloud2(150,270,.5,15)
+    drawCloud1(150,30,.5,15)
+
+    drawCloud2(300,5,.4,15)
+    drawCloud1(400,350,.4,15)
+
+    drawCloud1(80,200,.5,15)
+    drawCloud2(300,-50,.5,15)
+
+    drawCloud1(130,350,.5,15)
+    drawCloud1(30,30,.5,15)
     
-    drawDog(50,60)
-    drawCat(150,160)
-    
+    drawCloud2(430,50,.4,15)
+
+    drawDog(200,210,.8); drawCat(200,90,.8)
+    drawDog(80,90,.8); drawCat(80,210,.8)
   }
+  
 }
 
 function drawCat(headX,headY,size,rotateCat) {
   
   //COLOURS
-  let furColour = color(50)   //50        //252, 186, 3
-  let eyeColour = color(165, 252, 162)  //165, 252, 162         //57, 207, 227
+  let furColour = color(50)   //50        //235, 137, 52
+  let eyeColour = color(165, 252, 162)  //165, 252, 162         //245, 245, 113
   let glassesColour = color(255, 138, 140, 100) //255, 138, 140, 100      //29, 138, 25,120
+  let eyeShineColour = color(255)  //255  //250, 255, 122
 
   //EARS
   let earYinner = headY-5
@@ -147,6 +172,8 @@ function drawCat(headX,headY,size,rotateCat) {
   //EYE DETAILS
   let pupilX = 23
   let pupilY = headY-10
+  let pupilSizeX = 5
+  let pupilSizeY = 15
 
   let eyeshineX1 = 3            //rounder eyeshine
   let eyeshineY1 = pupilY-1
@@ -191,10 +218,10 @@ function drawCat(headX,headY,size,rotateCat) {
   
   //EYE DETAILS
   fill(0)
-  ellipse(headX-pupilX,pupilY,15,15)
-  ellipse(headX+pupilX,pupilY,15,15)
-  fill(255)
-  stroke(255)
+  ellipse(headX-pupilX,pupilY,pupilSizeX,pupilSizeY)
+  ellipse(headX+pupilX,pupilY,pupilSizeX,pupilSizeY)
+  fill(eyeShineColour)
+  stroke(eyeShineColour)
   ellipse((headX-pupilX)-eyeshineX1,eyeshineY1,8,8) 
   ellipse((headX+pupilX)-eyeshineX1,eyeshineY1,8,8) 
   ellipse((headX-pupilX)+eyeshineX2,eyeshineY2,5,2)
@@ -202,12 +229,12 @@ function drawCat(headX,headY,size,rotateCat) {
 
   stroke(0)
   
-  // //GLASSES
-  // fill(glassesColour) //transparent rose colour
-  // ellipse(headX-25,glassesY, 30,20)   
-  // ellipse(headX+25,glassesY, 30,20)
-  // line(headX-10,bridgeY,headX,bridgeY-5)
-  // line(headX+10,bridgeY,headX,bridgeY-5)
+  //GLASSES
+  fill(glassesColour) //transparent rose colour
+  ellipse(headX-25,glassesY, 30,20)   
+  ellipse(headX+25,glassesY, 30,20)
+  line(headX-10,bridgeY,headX,bridgeY-5)
+  line(headX+10,bridgeY,headX,bridgeY-5)
   
   //NOSE
   fill(255, 201, 246) //pinkish colour
@@ -224,8 +251,8 @@ function drawCat(headX,headY,size,rotateCat) {
 function drawDog(HeadX,HeadY,Size,RotateDog) {
     
   //COLOUR
-  let FurColour = color(199, 141, 97)
-  let EyeColour = color(28, 14, 3)
+  let FurColour = color(199, 141, 97) //yellowish: 242, 238, 104 //brown: 199, 141, 97
+  let EyeColour = color(28, 14, 3)  //dark blue: 2, 47, 79 //dark brown: 28, 14, 3
   let EyeShineColour = color(255)
   let NoseColour = color(102, 72, 48)
   let TongueColour = color(230, 170, 202)
@@ -285,7 +312,7 @@ function drawDog(HeadX,HeadY,Size,RotateDog) {
 
   //HEAD
   beginShape()
-  curveVertex(HeadX,HeadY-45)
+  curveVertex(HeadX,HeadY-40)
   curveVertex(HeadX,HeadY-45)
   curveVertex(HeadX+20,HeadY-40)
   curveVertex(HeadX+35,HeadY-20)
@@ -299,7 +326,7 @@ function drawDog(HeadX,HeadY,Size,RotateDog) {
   curveVertex(HeadX-35,HeadY-20)
   curveVertex(HeadX-20,HeadY-40)
   curveVertex(HeadX,HeadY-45)
-  curveVertex(HeadX,HeadY-45)
+  curveVertex(HeadX,HeadY-40)
   endShape()
 
   //EARS
@@ -350,13 +377,13 @@ function drawDog(HeadX,HeadY,Size,RotateDog) {
   curve(MouthCurveInnerX,MouthCurveInnerY,MouthStartX,MouthStartY,HeadX+MouthEndX,MouthEndY,MouthCurveOuterX,MouthCurveOuterY) //let NoseStartX = HeadX-6
   curve(MouthCurveInnerX,MouthCurveInnerY,MouthStartX,MouthStartY,HeadX-MouthEndX,MouthEndY,MouthCurveOuterX,MouthCurveOuterY) //let NoseStartY = HeadY+3
   
-  // //GLASSES
-  // translate(GlassesX,GlassesY)
-  // fill(176, 189, 255, 100)
-  // rect(HeadX-30,HeadY-21,25,18,5,5,15,15)
-  // rect(HeadX+5,HeadY-21,25,18,5,5,15,15)
-  // fill(0)
-  // rect(HeadX-5,HeadY-14,10,.3)
+  //GLASSES
+  translate(GlassesX,GlassesY)
+  fill(176, 189, 255, 100)
+  rect(HeadX-30,HeadY-21,25,18,5,5,15,15)
+  rect(HeadX+5,HeadY-21,25,18,5,5,15,15)
+  fill(0)
+  rect(HeadX-5,HeadY-14,10,.3)
 
   pop()
 }
@@ -365,6 +392,7 @@ function drawCloud1(cloudx1,cloudy1,csize,rotate1){
   push()
   rotate(rotate1)
   scale(csize)
+  fill(255)//140
   noStroke()
   rect(cloudx1+25,cloudy1-25,20,18, 35,35,5,5)
   rect(cloudx1+10,cloudy1-14,30,20, 35,35,5,60)
@@ -379,6 +407,7 @@ function drawCloud2(cloudx2,cloudy2,csize2,rotate2){
   push()
   rotate(rotate2)
   scale(csize2)
+  fill(255)//140
   noStroke()
   rect(cloudx2,cloudy2,88,17, 35,35,5,5)
   rect(cloudx2+25,cloudy2-25,28,25, 35,35,5,5)
