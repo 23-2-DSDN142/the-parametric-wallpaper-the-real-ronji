@@ -1,53 +1,202 @@
-You will need to fill out this file for hand in. 
-The bellow is just an example, feel free to disregard this documents contents.
+Note that these changes were put into effect in consecutive order
 
+///////////////////////////////////////////////////////////
+Wallpaper 1
+///////////////////////////////////////////////////////////
+let w = 1
 
-Your final settings.txt will look something like this when you are finished:
-
-/////////////////////////////////
-
-Wallpaper 1:
-
-//your parameter variables go here!
-let rect_width  = 20;
-let rect_height = 20;
-let paramter1 = 10;
-let paramter2 = true;
-let paramter3 = 50; 
-let paramter4 = 0; 
-let paramter5 = 60;
+//  lines 234-239 and lines 382-388 (glasses feature) are commented out
+//  on line 54 and line 55 where parameters for cat function and dog function are equal to drawCat(200,100,.7,45) and drawDog(100,200,.7,-45)
+//  parameters are represented by (x coordinartes, y coordinates, scale, rotate angle in degrees)  
 
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(GRID_WALLPAPER);
   pWallpaper.resolution(NINE_LANDSCAPE);
-  pWallpaper.show_guide(false); //set this to false when you're ready to print
+  pWallpaper.show_guide(false); 
 
   //Grid settings
-  pWallpaper.grid_settings.cell_width  = 100;
-  pWallpaper.grid_settings.cell_height = 100;
-  pWallpaper.grid_settings.row_offset  = 50;
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0;
 }
 
-/////////////////////////////////
+///////////////////////////////////////////////////////////
+Wallpaper 2
+///////////////////////////////////////////////////////////
+let w = 2
 
-Wallpaper 2:
-
-//your parameter variables go here!
-let rect_width  = 10;
-let rect_height = 10;
-let paramter1 = 20;
-let paramter2 = false;
-let paramter3 = 50; 
-let paramter4 = 80; 
-let paramter5 = 30;
+//  lines 237-242 and lines 385-391 (glasses feature) are still commented out
+//  on lines 74-77, cat and dog functions have different parameters:
+//  drawDog(100,100,.5)
+//  drawCat(100,300,.5)
+//  drawCat(300,100,.5)
+//  drawDog(300,300,.5)    
 
 function setup_wallpaper(pWallpaper) {
-  pWallpaper.output_mode(GRID_WALLPAPER);
-  pWallpaper.resolution(NINE_LANDSCAPE);
-  pWallpaper.show_guide(false); //set this to false when you're ready to print
+  pWallpaper.output_mode(GRID_WALLPAPER);//DEVELOP_GLYPH, GRID_WALLPAPER, GLIDE_WALLPAPER
+  pWallpaper.resolution(NINE_PORTRAIT);//FIT_TO_SCREEN, NINE_PORTRAIT, NINE_LANDSCAPE
+  pWallpaper.show_guide(false); //false, true
 
   //Grid settings
-  pWallpaper.grid_settings.cell_width  = 100;
-  pWallpaper.grid_settings.cell_height = 100;
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0;
+}
+
+///////////////////////////////////////////////////////////
+Wallpaper 3 
+///////////////////////////////////////////////////////////
+let w = 3
+
+//  lines 74-92 show that the cloud formation is different (lets call it variation 2)
+//  lines 94-95 show that parameters for cat and dog function are shown differently:
+//  drawCat(200,90,.8) and drawDog(80,200,.8)
+//  lines 237-242 and lines 385-391 (glasses feature) are still commented out
+//  line 139: let furColour = color(235, 137, 52)   
+//  line 140: let eyeColour = color(235, 137, 52)  
+//  line 141: let glassesColour = color(29, 138, 25,120) 
+//  line 142: let eyeShineColour = color(250, 255, 122)  
+//  line 185: let pupilSizeX = 5
+//  line 264: let FurColour = color(242, 238, 104) 
+//  line 265: let EyeColour = color(2, 47, 79)  
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(GRID_WALLPAPER);//DEVELOP_GLYPH, GRID_WALLPAPER, GLIDE_WALLPAPER
+  pWallpaper.resolution(NINE_LANDSCAPE);//FIT_TO_SCREEN, NINE_PORTRAIT, NINE_LANDSCAPE
+  pWallpaper.show_guide(false); //false, true
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0;
+}
+
+///////////////////////////////////////////////
+Wallpaper 4
+///////////////////////////////////////////////////////////
+let w = 4
+
+//  line 22: background(191, 206, 255) and lines 404 and 419: fill (140)
+//  lines 102-120 show that it has cloud variation 2 and lines 122-123 show that it is only cat functions being drawn
+//  drawCat(200,90,.8) and drawCat(80,210,.8)
+//  lines 237-242 and lines 385-391 (glasses feature) are NO LONGER commented out
+//  line 139: let furColour = color(50)   
+//  line 140: let eyeColour = color(165, 252, 1622)  
+//  line 141: let glassesColour = color(255, 138, 140, 100) 
+//  line 142: let eyeShineColour = color(255)  
+//  line 185: let pupilSizeX = 15
+//  line 264: let FurColour = color(199, 141, 97) 
+//  line 265: let EyeColour = color(28, 14, 3) 
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(GRID_WALLPAPER);//DEVELOP_GLYPH, GRID_WALLPAPER, GLIDE_WALLPAPER
+  pWallpaper.resolution(NINE_LANDSCAPE);//FIT_TO_SCREEN, NINE_PORTRAIT, NINE_LANDSCAPE
+  pWallpaper.show_guide(false); //false, true
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0;
+}
+
+///////////////////////////////////////////////////////////
+Wallpaper 5
+///////////////////////////////////////////////////////////
+let w = 4
+
+//  line 120-121: cat functions have been changed to dog functions: drawDog(200,210,.8) and drawDog(80,90,.8)
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(GRID_WALLPAPER);//DEVELOP_GLYPH, GRID_WALLPAPER, GLIDE_WALLPAPER
+  pWallpaper.resolution(NINE_LANDSCAPE);//FIT_TO_SCREEN, NINE_PORTRAIT, NINE_LANDSCAPE
+  pWallpaper.show_guide(false); //false, true
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0;
+}
+
+///////////////////////////////////////////////////////////
+Wallpaper 6
+///////////////////////////////////////////////////////////
+let w = 2
+
+//  same format as wallpaper 2
+//  parameters for colours and cat pupils are changed though
+//  same colour scheme as wallpaper 3 (night mode)
+//  lines 237-242 and lines 385-391 (glasses feature) are still commented out
+//  line 139: let furColour = color(235, 137, 52)   
+//  line 140: let eyeColour = color(235, 137, 52)  
+//  line 141: let glassesColour = color(29, 138, 25,120) 
+//  line 142: let eyeShineColour = color(250, 255, 122)  
+//  line 185: let pupilSizeX = 5
+//  line 264: let FurColour = color(242, 238, 104) 
+//  line 265: let EyeColour = color(2, 47, 79)  
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(GRID_WALLPAPER);//DEVELOP_GLYPH, GRID_WALLPAPER, GLIDE_WALLPAPER
+  pWallpaper.resolution(NINE_PORTRAIT);//FIT_TO_SCREEN, NINE_PORTRAIT, NINE_LANDSCAPE
+  pWallpaper.show_guide(false); //false, true
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0;
+}
+
+///////////////////////////////////////////////////////////
+Wallpaper 7
+///////////////////////////////////////////////////////////
+let w = 1 
+
+//  same format as wallpaper1 but in night mode parameters (refer to wallpapers 3 and 6)
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(GRID_WALLPAPER);//DEVELOP_GLYPH, GRID_WALLPAPER, GLIDE_WALLPAPER
+  pWallpaper.resolution(NINE_LANDSCAPE);//FIT_TO_SCREEN, NINE_PORTRAIT, NINE_LANDSCAPE
+  pWallpaper.show_guide(false); //false, true
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0;
+}
+
+///////////////////////////////////////////////////////////
+Wallpaper 8
+///////////////////////////////////////////////////////////
+let w = 4
+
+//  same night mode parameters
+//  comment back in cat drawing functions at the end of lines 122-123
+//  drawCat(200,90,.8) drawCat(80,210,.8)
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(GRID_WALLPAPER);//DEVELOP_GLYPH, GRID_WALLPAPER, GLIDE_WALLPAPER
+  pWallpaper.resolution(NINE_LANDSCAPE);//FIT_TO_SCREEN, NINE_PORTRAIT, NINE_LANDSCAPE
+  pWallpaper.show_guide(false); //false, true
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0;
+}
+
+///////////////////////////////////////////////////////////
+Wallpaper 9
+///////////////////////////////////////////////////////////
+let w = 3
+
+// change parameters back to day mode (refer to wallpapers 3 and 6)
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(GRID_WALLPAPER);//DEVELOP_GLYPH, GRID_WALLPAPER, GLIDE_WALLPAPER
+  pWallpaper.resolution(NINE_LANDSCAPE);//FIT_TO_SCREEN, NINE_PORTRAIT, NINE_LANDSCAPE
+  pWallpaper.show_guide(false); //false, true
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
   pWallpaper.grid_settings.row_offset  = 0;
 }
